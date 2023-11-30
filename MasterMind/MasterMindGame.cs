@@ -82,43 +82,6 @@ namespace MasterMind
             return sequence.ToArray();
         }
 
-        /*   static int[] AskAndRetriveGuressFromUser()
-          {
-              int[] guess = null;
-              bool isValidInput = false;
-              while (!isValidInput)
-              {
-                  Console.WriteLine();
-                  Console.WriteLine(Output.Align("Guess a sequence (e.g., 1 2 3 4):", Alignment.CENTER));
-                  string response = Console.ReadLine().Trim();
-                  string[] temp = response.Split(" ");
-
-                  if (temp.Length == 4)
-                  {
-                      isValidInput = true;
-
-                      guess = new int[4];
-                      for (int i = 0; i < 4; i++)
-                      {
-                          if (int.TryParse(temp[i], out int number))
-                          {
-                              guess[i] = number;
-                          }
-                          else
-                          {
-                              isValidInput = false;
-                              Console.WriteLine("Invalid input. Please enter four numbers separated by spaces.");
-                              break;
-                          }
-                      }
-                  }
-                  else
-                  {
-                      Console.WriteLine("Invalid input. Please enter exactly four numbers separated by spaces.");
-                  }
-              }
-              return guess;
-          } */
 
         int[] AskAndRetriveGuressFromUser()
         {
@@ -260,26 +223,38 @@ namespace MasterMind
             }
         }
 
-public int GetConsoleWidth(string str)
-{
-    int width = 0;
-    foreach (char c in str)
-    {
-        // Add the width of the character to the total width
-        // For simplicity, we assume that Unicode characters have a width of 2
-        width += char.IsControl(c) ? 0 : char.IsSurrogate(c) ? 2 : 1;
-    }
-    return width;
-}
+        public int GetConsoleWidth(string str)
+        {
+            int width = 0;
+            bool insideEscapeCode = false;
+
+            foreach (char c in str)
+            {
+                if (c == '\u001b') // Start of an ANSI escape code
+                {
+                    insideEscapeCode = true;
+                }
+                else if (insideEscapeCode && c == 'm') // End of an ANSI escape code
+                {
+                    insideEscapeCode = false;
+                }
+                else if (!insideEscapeCode)
+                {
+                    width += char.IsControl(c) || char.IsSurrogate(c) ? 0 : 1;
+                }
+            }
+
+            return width;
+        }
 
 
-public string CenterText(string text)
-{
-    int consoleWidth = Console.WindowWidth;
-    int textWidth = GetConsoleWidth(text);
-    int padding = (consoleWidth - textWidth) / 2;
-    return text.PadLeft(padding + text.Length).PadRight(consoleWidth);
-}
+        public string CenterText(string text)
+        {
+            int consoleWidth = Console.WindowWidth;
+            int textWidth = GetConsoleWidth(text);
+            int padding = (consoleWidth - textWidth) / 2;
+            return text.PadLeft(padding + text.Length).PadRight(consoleWidth);
+        }
 
         #endregion
 
@@ -306,7 +281,6 @@ public string CenterText(string text)
             {
                 int[] colors = new[] { (int)COLORS.RED, (int)COLORS.YELLOW, (int)COLORS.GREEN, (int)COLORS.BLUE, (int)COLORS.MAGENTA, (int)COLORS.CYAN };
                 solution = CreateSequence(colors, 4, false);
-                Console.WriteLine(string.Join(",", solution));
                 Thread.Sleep(2000);
                 Console.Clear();
 
@@ -315,7 +289,6 @@ public string CenterText(string text)
             {
                 int[] colors = new[] { (int)COLORS.RED, (int)COLORS.YELLOW, (int)COLORS.GREEN, (int)COLORS.BLUE, (int)COLORS.MAGENTA, (int)COLORS.CYAN };
                 solution = CreateSequence(colors, 4, true);
-                Console.WriteLine(string.Join(",", solution));
                 Thread.Sleep(2000);
                 Console.Clear();
             }
@@ -374,31 +347,31 @@ public string CenterText(string text)
                 Console.WriteLine();
 
                 for (int i = 0; i < maxAttempts; i++)
-        {
-            string guessSymbols;
-            if (i < guesses.Count)
-            {
-                guessSymbols = GetColoredPegs(guesses[i]);
-            }
-            else
-            {
-                guessSymbols = "☆ ☆ ☆ ☆";
-            }
+                {
+                    string guessSymbols;
+                    if (i < guesses.Count)
+                    {
+                        guessSymbols = GetColoredPegs(guesses[i]);
+                    }
+                    else
+                    {
+                        guessSymbols = "☆ ☆ ☆ ☆";
+                    }
 
-            string evaluationSymbols;
-            if (i < evaluations.Count)
-            {
-                evaluationSymbols = GetEvaluationSymbols(evaluations[i]);
-            }
-            else
-            {
-                evaluationSymbols = "☆ ☆ ☆ ☆";
-            }
+                    string evaluationSymbols;
+                    if (i < evaluations.Count)
+                    {
+                        evaluationSymbols = GetEvaluationSymbols(evaluations[i]);
+                    }
+                    else
+                    {
+                        evaluationSymbols = "☆ ☆ ☆ ☆";
+                    }
 
-            string line = $"{evaluationSymbols}  |  {guessSymbols}";
-            Console.WriteLine(CenterText(line));
-            Console.WriteLine();
-            }
+                    string line = $"{evaluationSymbols}  |  {guessSymbols}";
+                    Console.WriteLine(CenterText(line));
+                    Console.WriteLine();
+                }
             }
 
             if (isGameOver && isWinner)
