@@ -19,14 +19,12 @@ namespace MasterMind
         int currentRow = 0;
         int ypos = 0;
         int xpos = 0;
-        int previousYPos = -1;
-        int previousXPos = -1;
-        int bottomY = 0;
-        int instructionY = 0;
+        int middleX = 0;
         int tickCount = 0;
         bool animate = false;
         bool dirty = false;
         int countdownToExit = 3;
+
 
         public Action<Type, object[]> OnExitScreen { get; set; }
 
@@ -35,14 +33,14 @@ namespace MasterMind
             Console.Clear();
             artRows = art.Split("\n");
             numberOfLines = artRows.Length;
-            bottomY = (int)((Console.WindowHeight - numberOfLines) * 0.5);
-            instructionY = bottomY + 3;
-            currentRow = artRows.Length - 1;
-            ypos = 0;
-            previousYPos = -1;
+            middleX = (int)((Console.WindowWidth - artRows[0].Length) * 0.5);
+            currentRow = 0;
+            ypos = Console.WindowHeight / 3;
+            xpos = 0;
             tickCount = TICKS_PER_FRAME;
             animate = true;
         }
+
 
         public void update()
         {
@@ -50,25 +48,22 @@ namespace MasterMind
             {
                 if (animate)
                 {
-                    if (ypos > bottomY)
+                    if (xpos < middleX)
                     {
-                        currentRow--;
-                        bottomY--;
-                        ypos = 0;
-                        previousYPos = -1;
-
-                        if (currentRow < 0)
-                        {
-                            animate = false;
-                        }
+                        xpos++;
+                        dirty = true;
+                    }
+                    else if (currentRow < numberOfLines - 1)
+                    {
+                        currentRow++;
+                        xpos = 0;
+                        ypos++;
+                        dirty = true;
                     }
                     else
                     {
-                        previousYPos = ypos;
-                        ypos++;
+                        animate = false;
                     }
-
-                    dirty = true;
                 }
                 tickCount = 0;
             }
@@ -85,7 +80,7 @@ namespace MasterMind
 
                 tickCount++;
             }
-        } 
+        }
 
 
 
@@ -96,16 +91,21 @@ namespace MasterMind
 
         public void draw()
         {
-            if (animate && dirty)
+            if (dirty)
             {
+                Console.SetCursorPosition(0, ypos);
+                Console.Write(new string(' ', Console.WindowWidth));
+                Console.SetCursorPosition(xpos, ypos);
+                Console.Write(artRows[currentRow]);
+
                 dirty = false;
-                Console.Write(ANSICodes.Positioning.SetCursorPos(previousYPos, 0));
-                Console.Write(ANSICodes.Positioning.ClearLine);
-                Console.Write(ANSICodes.Positioning.SetCursorPos(ypos, 0));
-                Console.Write(Output.Align(artRows[currentRow], Alignment.CENTER));
             }
-        } 
+        }
 
     }
 
 }
+
+
+
+

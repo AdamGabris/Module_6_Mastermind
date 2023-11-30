@@ -7,8 +7,6 @@ namespace MasterMind
     {
         #region Constants And Variables 
         const String NEW_GAME = "Start New Game";
-        const String CONTINUE_GAME = "Continue Game";
-        const string DISPLAY_SETTINGS = "Settings";
         const string QUIT = "Quit";
         const int MENU_ITEM_WIDTH = 50;
         readonly string[] menuItems = { NEW_GAME, QUIT };
@@ -35,6 +33,7 @@ namespace MasterMind
         {
             startColumn = 0;
         }
+
         public void input()
         {
             if (Console.KeyAvailable)

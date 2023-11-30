@@ -26,3 +26,18 @@
 /Users/adamgabris/Desktop/UiA/Year_2/Programming_1/module_6_mastermind/obj/Debug/net7.0/Mastermind.pdb
 /Users/adamgabris/Desktop/UiA/Year_2/Programming_1/module_6_mastermind/obj/Debug/net7.0/Mastermind.genruntimeconfig.cache
 /Users/adamgabris/Desktop/UiA/Year_2/Programming_1/module_6_mastermind/obj/Debug/net7.0/ref/Mastermind.dll
+D:\UiA\Year 2\MM201 Programming 1\Module_6_Mastermind\bin\Debug\net7.0\Mastermind.exe
+D:\UiA\Year 2\MM201 Programming 1\Module_6_Mastermind\bin\Debug\net7.0\Mastermind.deps.json
+D:\UiA\Year 2\MM201 Programming 1\Module_6_Mastermind\bin\Debug\net7.0\Mastermind.runtimeconfig.json
+D:\UiA\Year 2\MM201 Programming 1\Module_6_Mastermind\bin\Debug\net7.0\Mastermind.dll
+D:\UiA\Year 2\MM201 Programming 1\Module_6_Mastermind\bin\Debug\net7.0\Mastermind.pdb
+D:\UiA\Year 2\MM201 Programming 1\Module_6_Mastermind\obj\Debug\net7.0\Mastermind.csproj.AssemblyReference.cache
+D:\UiA\Year 2\MM201 Programming 1\Module_6_Mastermind\obj\Debug\net7.0\Mastermind.GeneratedMSBuildEditorConfig.editorconfig
+D:\UiA\Year 2\MM201 Programming 1\Module_6_Mastermind\obj\Debug\net7.0\Mastermind.AssemblyInfoInputs.cache
+D:\UiA\Year 2\MM201 Programming 1\Module_6_Mastermind\obj\Debug\net7.0\Mastermind.AssemblyInfo.cs
+D:\UiA\Year 2\MM201 Programming 1\Module_6_Mastermind\obj\Debug\net7.0\Mastermind.csproj.CoreCompileInputs.cache
+D:\UiA\Year 2\MM201 Programming 1\Module_6_Mastermind\obj\Debug\net7.0\Mastermind.dll
+D:\UiA\Year 2\MM201 Programming 1\Module_6_Mastermind\obj\Debug\net7.0\refint\Mastermind.dll
+D:\UiA\Year 2\MM201 Programming 1\Module_6_Mastermind\obj\Debug\net7.0\Mastermind.pdb
+D:\UiA\Year 2\MM201 Programming 1\Module_6_Mastermind\obj\Debug\net7.0\Mastermind.genruntimeconfig.cache
+D:\UiA\Year 2\MM201 Programming 1\Module_6_Mastermind\obj\Debug\net7.0\ref\Mastermind.dll

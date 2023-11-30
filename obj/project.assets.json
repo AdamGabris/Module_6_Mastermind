@@ -8,19 +8,19 @@
     "net7.0": []
   },
   "packageFolders": {
-    "/Users/adamgabris/.nuget/packages/": {}
+    "C:\\Users\\adamo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/adamgabris/Desktop/UiA/Year_2/Programming_1/module_6_mastermind/Mastermind.csproj",
+      "projectUniqueName": "D:\\UiA\\Year 2\\MM201 Programming 1\\Module_6_Mastermind\\Mastermind.csproj",
       "projectName": "Mastermind",
-      "projectPath": "/Users/adamgabris/Desktop/UiA/Year_2/Programming_1/module_6_mastermind/Mastermind.csproj",
-      "packagesPath": "/Users/adamgabris/.nuget/packages/",
-      "outputPath": "/Users/adamgabris/Desktop/UiA/Year_2/Programming_1/module_6_mastermind/obj/",
+      "projectPath": "D:\\UiA\\Year 2\\MM201 Programming 1\\Module_6_Mastermind\\Mastermind.csproj",
+      "packagesPath": "C:\\Users\\adamo\\.nuget\\packages\\",
+      "outputPath": "D:\\UiA\\Year 2\\MM201 Programming 1\\Module_6_Mastermind\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/adamgabris/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\adamo\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -59,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.400/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }
