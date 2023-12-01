@@ -269,7 +269,7 @@ namespace MasterMind
             {
                 Console.WriteLine("How many attemps for guessing do you want?");
                 maxAttempts = int.Parse(Console.ReadLine());
-                if (maxAttempts > 10)
+                if (maxAttempts > 10 || maxAttempts < 0)
                 {
                     Console.WriteLine("Maximum number of attempts allowed is 10");
                     maxAttempts = 0;
@@ -277,10 +277,10 @@ namespace MasterMind
             }
             Console.WriteLine("Do you want to allow duplicates? (y/n)");
             string duplicateInput = Console.ReadLine();
-            if (duplicateInput == "n")
+            if (duplicateInput == "y")
             {
                 int[] colors = new[] { (int)COLORS.RED, (int)COLORS.YELLOW, (int)COLORS.GREEN, (int)COLORS.BLUE, (int)COLORS.MAGENTA, (int)COLORS.CYAN };
-                solution = CreateSequence(colors, 4, false);
+                solution = CreateSequence(colors, 4, true);
                 Thread.Sleep(2000);
                 Console.Clear();
 
@@ -288,7 +288,7 @@ namespace MasterMind
             else
             {
                 int[] colors = new[] { (int)COLORS.RED, (int)COLORS.YELLOW, (int)COLORS.GREEN, (int)COLORS.BLUE, (int)COLORS.MAGENTA, (int)COLORS.CYAN };
-                solution = CreateSequence(colors, 4, true);
+                solution = CreateSequence(colors, 4, false);
                 Thread.Sleep(2000);
                 Console.Clear();
             }
